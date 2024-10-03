@@ -76,28 +76,13 @@ function randomInteger(min, max) {
 }
 
 function chooseHole(holes) {
-  const index = randomInteger(0, 2);
+  const index = randomInteger(0, 8);
   const hole = holes[index];
   if (hole === lastHole) {
     return chooseHole(holes);
   }
   lastHole = hole;
   return hole;
-}
-
-// example
-let hole = chooseHole(holes);
-
-// highlight random hole
-hole.classList.toggle("highlight");
-console.log(hole.innerHTML);
-console.log(hole.classList);
-
-// choose another hole and highlight it too
-hole = chooseHole(holes);
-hole.classList.toggle("highlight");
-console.log(hole.innerHTML);
-console.log(hole.classList);
 }
 
 /**
@@ -175,7 +160,7 @@ function showAndHide(hole, delay){
 */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  
+  hole.classlist.toggle("hole")
   return hole;
 }
 
@@ -191,7 +176,7 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-
+score.textContent = points;
   return points;
 }
 
@@ -204,8 +189,8 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
@@ -217,7 +202,10 @@ function clearScore() {
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-  
+  if(time > 0) {
+    time -= 1;
+    timerDisplay.textContent = time;
+  }
   return time;
 }
 
@@ -229,7 +217,7 @@ function updateTimer() {
 */
 function startTimer() {
   // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -244,6 +232,11 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   // call updateScore()
+  moles.forEach(
+    mole => mole.addEventListener('click', whack)
+
+)
+
   return points;
 }
 
@@ -254,9 +247,12 @@ function whack(event) {
 */
 function setEventListeners(){
   // TODO: Write your code here
-
+  moles.forEach(
+    mole =>addEventListener('click', whack)
+  );
   return moles;
 }
+setEventListeners();
 
 /**
 *
@@ -276,7 +272,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
 }
@@ -288,8 +284,8 @@ function stopGame(){
 *
 */
 function startGame(){
-  //setDuration(10);
-  //showUp();
+  setDuration(10);
+  showUp();
   return "game started";
 }
 
