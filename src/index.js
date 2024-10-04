@@ -67,15 +67,6 @@ function setDelay(difficulty) {
  */
 function chooseHole(holes) {
   // TODO: Write your code here.
-  const holes = document.querySelectorAll('.hole');
-
-let lastHole = 0;
-
-function randomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function chooseHole(holes) {
   const index = randomInteger(0, 8);
   const hole = holes[index];
   if (hole === lastHole) {
@@ -107,7 +98,6 @@ function chooseHole(holes) {
 */
 function gameOver() {
   // TODO: Write your code here
-  function gameOver() {
     if(time > 0){
       let timeoutId = showUp();
       return timeoutId;
@@ -115,7 +105,6 @@ function gameOver() {
       let gameStopped = stopGame();
       return gameStopped;
     }
-}
 }
 
 /**
@@ -128,7 +117,7 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = setDelay("easy"); // TODO: Update so that it uses setDelay()
+  let delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
   const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
@@ -148,7 +137,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
-  }, delay) // TODO: change the setTimeout delay to the one provided as a parameter
+  }, 1000) // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -160,7 +149,7 @@ function showAndHide(hole, delay){
 */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  hole.classlist.toggle("hole")
+  hole.classList.toggle("show")
   return hole;
 }
 
@@ -176,9 +165,16 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-score.textContent = points;
+  let points = 0;
+  // Increment the points variable by 1
+  points++;
+// Update the scoreboard with the new points value
+  let score = document.getElementById("scoreboard");
+  score.textContent = points;
+// Return the updated points value
   return points;
 }
+
 
 /**
 *
@@ -231,11 +227,11 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
-  moles.forEach(
-    mole => mole.addEventListener('click', whack)
+  updateScore()
+//   moles.forEach(
+//     mole => mole.addEventListener('click', whack)
 
-)
+// )
 
   return points;
 }
@@ -248,11 +244,10 @@ function whack(event) {
 function setEventListeners(){
   // TODO: Write your code here
   moles.forEach(
-    mole =>addEventListener('click', whack)
+    mole => addEventListener('click', whack)
   );
   return moles;
 }
-setEventListeners();
 
 /**
 *
@@ -272,7 +267,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  stopAudio(song);  //optional
+  //stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
 }
@@ -284,8 +279,13 @@ function stopGame(){
 *
 */
 function startGame(){
-  setDuration(10);
   showUp();
+  //points = 0;
+  //clearScore();
+  setDuration(30);
+  startTimer();
+  setEventListeners();
+  
   return "game started";
 }
 
