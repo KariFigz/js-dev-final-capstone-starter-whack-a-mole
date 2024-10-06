@@ -170,11 +170,12 @@ function updateScore() {
   points++;
 // Update the scoreboard with the new points value
   let score = document.getElementById("scoreboard");
-  score.textContent = points;
+  if (score) {
+    score.textContent = points;
+  } 
 // Return the updated points value
   return points;
 }
-
 
 /**
 *
@@ -198,7 +199,7 @@ function clearScore() {
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-  if(time > 0) {
+  if (time > 0) {
     time -= 1;
     timerDisplay.textContent = time;
   }
@@ -228,8 +229,8 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   updateScore()
-//   moles.forEach(
-//     mole => mole.addEventListener('click', whack)
+//moles.forEach(
+// mole => mole.addEventListener('click', whack)
 
 // )
 
@@ -283,7 +284,7 @@ function startGame(){
   //points = 0;
   //clearScore();
   setDuration(30);
-  startTimer();
+  //startTimer();
   setEventListeners();
   
   return "game started";
