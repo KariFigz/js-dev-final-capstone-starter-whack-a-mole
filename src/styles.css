@@ -12,7 +12,7 @@ html {
 
 h1 {
   text-align: center;
-  font-size: 90px;
+  font-size: 80px;
   font-family: 'Arcade Interlaced', sans-serif;
   font-family: 'Arcade Normal', sans-serif;
   font-family: 'Arcade Rounded', sans-serif;
@@ -23,7 +23,7 @@ h1 {
 h2 {
   text-align: center;
   font-size: 40px;
-  color: white;
+  color: pink;
   -webkit-text-stroke: 1px black;
 }
 
@@ -35,7 +35,11 @@ h2 {
   }
 
 #timer{
-    color: yellow;
+    color: #ff005d;
+}
+
+#score {
+  color:deeppink
 }
 
 .grid {
@@ -44,9 +48,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
 }
-
+  
 .hole {
   flex: 1 0 33.33%;
   overflow: hidden;
@@ -85,3 +88,6 @@ h2 {
   transform: scale(1.1);
 }
 
+body {
+  cursor: url('../assets/mallet.png'), default ;
+} /*In Order to have the mallet work on the webpage I found this code works outside the grid*/
