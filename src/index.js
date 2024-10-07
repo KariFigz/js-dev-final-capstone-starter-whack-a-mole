@@ -10,6 +10,26 @@ let timer;
 let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
+//13-33 music code to get it to work on game//
+const audioHit = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/hit.mp3?raw=true");
+const song = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true");
+
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
+}
+
+function playMusic(){
+  playAudio(song);
+}
 
 /**
  * Generates a random integer within a range.
@@ -232,6 +252,7 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   updateScore()
+  playMusic()
 //moles.forEach(
 // mole => mole.addEventListener('click', whack)
 
