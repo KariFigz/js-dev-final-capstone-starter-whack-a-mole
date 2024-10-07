@@ -165,14 +165,10 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-  let points = 0;
   // Increment the points variable by 1
   points++;
 // Update the scoreboard with the new points value
-  let score = document.getElementById("score");
-  if (score) {
-    score.textContent = points;
-  } 
+document.getElementById('score').textContent = points;
 // Return the updated points value
   return points;
 }
@@ -186,16 +182,23 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  points = 0;
-  score.textContent = points;
-  return points;
-}
+    // Set the points global variable to 0
+    points = 0;
+  
+    // Update the scoreboard in index.html
+    document.getElementById('score').textContent = points;
+  
+    // Return the updated points value
+    return points;
+  }
+
 
 /**
 *
 * Updates the control board with the timer if time > 0
 *
 */
+
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
@@ -280,12 +283,12 @@ function stopGame(){
 *
 */
 function startGame(){
-  showUp();
+  setDuration(10);
   //points = 0;
   //clearScore();
-  setDuration(30);
+  showUp();
   //startTimer();
-  setEventListeners();
+  //setEventListeners();
   
   return "game started";
 }
