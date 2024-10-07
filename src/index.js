@@ -248,10 +248,12 @@ function whack(event) {
 function setEventListeners(){
   // TODO: Write your code here
   moles.forEach(
-    mole => addEventListener('click', whack)
+    mole => mole.addEventListener('click', whack)
   );
   return moles;
 }
+
+setEventListeners();
 
 /**
 *
@@ -287,7 +289,7 @@ function startGame(){
   //points = 0;
   //clearScore();
   showUp();
-  //startTimer();
+  startTimer();
   //setEventListeners();
   
   return "game started";
