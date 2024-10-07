@@ -13,8 +13,10 @@ html {
 h1 {
   text-align: center;
   font-size: 90px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: purple;
+  font-family: 'Arcade Interlaced', sans-serif;
+  font-family: 'Arcade Normal', sans-serif;
+  font-family: 'Arcade Rounded', sans-serif;
+  color: rgb(140, 122, 230);
   -webkit-text-stroke: 2px black;
 }
 

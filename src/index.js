@@ -286,8 +286,8 @@ function stopGame(){
 */
 function startGame(){
   setDuration(10);
-  //points = 0;
-  //clearScore();
+  points = 0;
+  clearScore();
   showUp();
   startTimer();
   //setEventListeners();
