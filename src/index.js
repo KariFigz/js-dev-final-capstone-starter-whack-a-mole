@@ -87,7 +87,7 @@ function setDelay(difficulty) {
  */
 function chooseHole(holes) {
   // TODO: Write your code here.
-  const index = randomInteger(0, 8);
+  const index = randomInteger(0, 8);//I was going based on repl example but have found reading the instruction, integer is 0,8//
   const hole = holes[index];
   if (hole === lastHole) {
     return chooseHole(holes);
@@ -157,7 +157,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
-  }, 1000) // TODO: change the setTimeout delay to the one provided as a parameter
+  }, 1000) // TODO: change the setTimeout delay to the one provided as a parameter, found it was 1000ms to make it work
   return timeoutID;
 }
 
@@ -224,7 +224,7 @@ function updateTimer() {
   // hint: this code is provided to you in the instructions.
   if (time > 0) {
     time -= 1;
-    timerDisplay.textContent = time;
+    timerDisplay.textContent = time; //found this one function to be difficult because I forgot to add.textContent
   }
   return time;
 }
@@ -310,7 +310,7 @@ function startGame(){
   points = 0;
   clearScore();
   showUp();
-  startTimer();
+  startTimer();//inquired assistance but understood startTimer() was necessary to get it to fire 
   //setEventListeners();
   
   return "game started";
